@@ -53,7 +53,7 @@ string pixrender(block a)
 		}
 	else 
 		{
-			cout << a.type;
+			cout << "block type " << a.type << " found" << endl;
 			exit(1);
 		}
 }
@@ -89,13 +89,13 @@ void display(int x,int y)
 		cntx = -15;
 		while (cntx < 17)
 		{	
-			cout << cntx << "," << cnty << endl; cout.flush();
-			cout << "test1" << endl; cout.flush();
+			//cout << cntx << "," << cnty << endl; cout.flush();
+			//cout << "test1" << endl; cout.flush();
 			getblock(x+cntx,y+cnty);
-			cout << "test2" << endl; cout.flush();
+			//cout << "test2" << endl; cout.flush();
 			block.append(pixrender(getblock(x+cntx,y+cnty)));
-			cout << "test3" << endl; cout.flush();
-			cout << cntx << "," << cnty << endl; cout.flush();
+			//cout << "test3" << endl; cout.flush();
+			//cout << cntx << "," << cnty << endl; cout.flush();
 			cntx++;
 		}
 		block.append("\n");
@@ -156,8 +156,6 @@ void game()
 			}
 			cntx++;
 		}
-		cout << map.size();
-		cout << "test4" << endl; cout.flush();
 		
 		display(x,y);
 		
