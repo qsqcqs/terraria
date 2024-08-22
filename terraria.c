@@ -76,6 +76,8 @@ char* chunkgen(long x,long y)
 		//temp because I cant think of a gen function
 		out[buffer+16]='f';
 	}	
+	//char k;
+	//k = *out;
 	return(out);
 }
 char* pixrender(char a)
@@ -96,26 +98,51 @@ void game()
 //spawncoords 00 idk for now
 	int spawnx = 0;
 	int spawny = 0;
-	char* chunktl[140];
-	char* chunktm[140];
-	char* chunktr[140];
-	char* chunkml[140];
-	char* chunkmm[140];
-	char* chunkmr[140];
-	char* chunkbl[140];
-	char* chunkbm[140];
-	char* chunkbr[140];
+	char chunktl[140];
+	char chunktm[140];
+	char chunktr[140];
+	char chunkml[140];
+	char chunkmm[140];
+	char chunkmr[140];
+	char chunkbl[140];
+	char chunkbm[140];
+	char chunkbr[140];
+	
+	char* pchunktl[140];
+	char* pchunktm[140];
+	char* pchunktr[140];
+	char* pchunkml[140];
+	char* pchunkmm[140];
+	char* pchunkmr[140];
+	char* pchunkbl[140];
+	char* pchunkbm[140];
+	char* pchunkbr[140];
+	
 	int chunkspawnx = spawnx/16;
 	int chunkspawny = spawnx/16;
-	*chunktl = chunkgen(chunkspawnx-1,chunkspawny+1);
-	*chunktm = chunkgen(chunkspawnx,chunkspawny+1);
-	*chunktr = chunkgen(chunkspawnx+1,chunkspawny+1);
-	*chunkml = chunkgen(chunkspawnx-1,chunkspawny);
-	*chunkmm = chunkgen(chunkspawnx,chunkspawny);
-	*chunkmr = chunkgen(chunkspawnx+1,chunkspawny);
-	*chunkbl = chunkgen(chunkspawnx-1,chunkspawny-1);
-	*chunkbm = chunkgen(chunkspawnx,chunkspawny-1);
-	*chunkbr = chunkgen(chunkspawnx+1,chunkspawny-1);
+	*pchunktl = chunkgen(chunkspawnx-1,chunkspawny+1);
+	*pchunktm = chunkgen(chunkspawnx,chunkspawny+1);
+	*pchunktr = chunkgen(chunkspawnx+1,chunkspawny+1);
+	*pchunkml = chunkgen(chunkspawnx-1,chunkspawny);
+	*pchunkmm = chunkgen(chunkspawnx,chunkspawny);
+	*pchunkmr = chunkgen(chunkspawnx+1,chunkspawny);
+	*pchunkbl = chunkgen(chunkspawnx-1,chunkspawny-1);
+	*pchunkbm = chunkgen(chunkspawnx,chunkspawny-1);
+	*pchunkbr = chunkgen(chunkspawnx+1,chunkspawny-1);
+	int cnt = 0;
+	while (cnt < 140)
+	{
+		chunktl[cnt]=*pchunktl[cnt];
+		chunktm[cnt]=*pchunktm[cnt];
+		chunktr[cnt]=*pchunktr[cnt];
+		chunkml[cnt]=*pchunkml[cnt];
+		chunkmm[cnt]=*pchunkmm[cnt];
+		chunkmr[cnt]=*pchunkmr[cnt];
+		chunkbl[cnt]=*pchunkml[cnt];
+		chunkbm[cnt]=*pchunkbm[cnt];
+		chunkbr[cnt]=*pchunkbr[cnt];
+		cnt++;
+	}
 	bool c = true;
 	int playerx=spawnx;
 	int playery=spawny;
